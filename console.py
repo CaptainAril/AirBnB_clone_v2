@@ -132,9 +132,7 @@ class HBNBCommand(cmd.Cmd):
             elif '.' in value:
                 value = float(value)
             elif '"' in value or '_' in value:
-                print(value)
                 value = value[1:-1].replace('_', ' ')
-                print(value)
             setattr(new_instance, k, value)
         storage.save()
         print(new_instance.id)
