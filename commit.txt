@@ -1,0 +1,19 @@
+base_model
+	delete()
+
+place
+	reviews() - getter method
+	amenities() - getter and setter methods
+
+amenity
+	Class description
+
+file_storage
+	delete()
+
+db_storage - everything (module, class, __init__ and functions descriptions)
+
+state
+	cities()
+
+AUTHORS
