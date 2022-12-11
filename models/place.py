@@ -42,6 +42,8 @@ class Place(BaseModel, Base):
     else:
         @property
         def reviews(self):
+            """Returns the list of `Review` instances with `place_id` equals
+            to the current `Place.id`."""
             reviewList = []
             review = models.storage.all(Review)
             for instance in review:
@@ -51,9 +53,13 @@ class Place(BaseModel, Base):
 
         @property
         def amenities(self):
+            """Returns the list of `Amenity` instances based on the
+            attribute `amenity_ids` that contain all `Amenity.id`
+            linked to `Place`."""
             return self.amenity_ids
 
         @amenities.setter
         def amenities(self, obj):
+            """Appends `Amenity.id` to the attribute `amenity_ids`"""
             if isinstance(obj, Amenity):
                 self.amenity_ids.append(obj.id)

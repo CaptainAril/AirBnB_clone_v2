@@ -18,6 +18,7 @@ class State(BaseModel, Base):
 
     @property
     def cities(self):
+        """Returns a list of city objects with state_id = current id."""
         cityList = []
         allCities = models.storage.all()
         for city in allCities:
