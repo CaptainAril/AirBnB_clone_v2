@@ -64,5 +64,5 @@ class FileStorage:
             for key in (self.all()):
                 if self.all()[key] == obj:
                     break
-        del(FileStorage.__objects[key])
-        self.save()
+            del(FileStorage.__objects[key])
+            self.save()
