@@ -39,7 +39,6 @@ class FileStorage:
             temp.update(FileStorage.__objects)
             for key, val in temp.items():
                 temp[key] = val.to_dict()
-            print(temp)
             if '_sa_instance_state' in temp:
                 del(temp['_sa_instance_state'])
             json.dump(temp, f)
