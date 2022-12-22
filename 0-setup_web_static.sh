@@ -14,8 +14,7 @@ sudo chmod -R 755 /usr/share/nginx/html
 sudo mkdir -p /data/web_static/releases/test/
 sudo mkdir -p /data/web_static/shared/
 sudo chmod -R 777 /data
-HTML=\
-"<html>
+HTML="<html>
 	<head>
 	</head>
 	<body>
@@ -27,8 +26,7 @@ echo -e "$HTML" > /data/web_static/releases/test/index.html
 ln -sf /data/web_static/releases/test/ /data/web_static/current
 sudo chmod -R 755 /data/web_static/releases/test/
 sudo chown -R ubuntu:ubuntu /data/
-config=\
-"server {
+config="server {
 	listen 80 default_server;
 	listen [::]:80 default_server;
 	add_header X-Served-By \$HOSTNAME;
