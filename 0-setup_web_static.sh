@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # Installs and configures NginX  on a remote server
-sudo apt-get -y update
-sudo apt-get -y upgrade
-sudo apt-get -y install nginx
-sudo ufw allow 'NginX HTTP'
+sudo apt -y update
+sudo apt -y upgrade
+sudo apt -y install nginx
+#sudo ufw allow 'NginX HTTP'
 sudo chmod -R 777 /var/www/html
 sudo chmod -R 777 /usr/share/nginx/html
 sudo chmod -R 777 /etc/nginx/sites-available/default
@@ -52,4 +52,3 @@ echo -e "$config" > /etc/nginx/sites-available/default
 sudo chmod -R 755 /etc/nginx/sites-available/default
 sudo nginx -t
 sudo service nginx restart
-
