@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Installs and configjres NginX  on a remote server
-sudo apt -y update
-sudo apt -y upgrade
-sudo apt -y install nginx
+# Installs and configures NginX  on a remote server
+sudo apt-get -y update
+sudo apt-get -y upgrade
+sudo apt-get -y install nginx
 sudo ufw allow 'NginX HTTP'
 sudo chmod -R 777 /var/www/html
 sudo chmod -R 777 /usr/share/nginx/html
