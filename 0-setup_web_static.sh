@@ -52,3 +52,4 @@ echo -e "$config" > /etc/nginx/sites-available/default
 sudo chmod -R 755 /etc/nginx/sites-available/default
 sudo nginx -t
 sudo service nginx restart
+
