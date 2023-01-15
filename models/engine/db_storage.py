@@ -40,6 +40,7 @@ class DBStorage:
         obj_dict = {}
         obj_list = []
         if cls:
+            cls = eval(cls) if type(cls) is str else cls
             obj_list = self.__session.query(cls).all()
         else:
             for cl in [City, State, User, Place, Review, Amenity]:

@@ -20,6 +20,7 @@ class FileStorage:
         models currently in storage"""
         obj_dict = {}
         if cls:
+            cls = eval(cls) if type(cls) is str else cls
             for key, value in FileStorage.__objects.items():
                 if FileStorage.__objects[key].__class__ == cls:
                     obj_dict[key] = value
