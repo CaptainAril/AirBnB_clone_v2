@@ -44,8 +44,7 @@ def is_number(n):
 def render(n):
     """Renders a html template."""
     if isinstance(n, int):
-        text = "Number: {}".format(n)
-        return render_template('5-number.html', text=text)
+        return render_template('5-number.html', n=n)
 
 
 if __name__ == '__main__':
