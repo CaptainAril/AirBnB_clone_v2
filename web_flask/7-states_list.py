@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 
 @app.teardown_appcontext
-def teardown_db(f):
+def teardown_db(exception):
     """Removes SQLAlchemy session after each request."""
     storage.close()
 
