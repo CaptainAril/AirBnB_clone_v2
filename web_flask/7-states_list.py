@@ -9,14 +9,14 @@ app = Flask(__name__)
 
 
 @app.route('/states_list', strict_slashes=False)
-def states():
+def states_list():
     """Displays a HTML page of States."""
-    states = storage.all(State)
+    states = storage.all(State).values()
     return render_template('7-states_list.html', states=states)
 
 
 @app.teardown_appcontext
-def teardown_db(exception):
+def close_db(exception):
     """Removes SQLAlchemy session after each request."""
     storage.close()
 
