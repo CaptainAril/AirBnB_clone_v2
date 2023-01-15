@@ -4,6 +4,7 @@ from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
 import models
+from models.city import City
 
 
 class State(BaseModel, Base):
@@ -13,14 +14,14 @@ class State(BaseModel, Base):
 
     # for DBStorage
     cities = relationship('City', cascade='all, delete', backref='state')
-    # for FileStorage
 
+    # for FileStorage
     @property
     def cities(self):
         """Returns a list of city objects with state_id = current id."""
         cityList = []
-        allCities = models.storage.all()
+        allCities = models.storage.all(City)
         for city in allCities:
             if allCities[city].state_id == self.id:
                 cityList.append(allCities[city])
-        return allCities
+        return cityList

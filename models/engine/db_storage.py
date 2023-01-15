@@ -19,6 +19,8 @@ passwd = os.environ.get('HBNB_MYSQL_PWD')
 host = os.environ.get('HBNB_MYSQL_HOST')
 db = os.environ.get('HBNB_MYSQL_DB')
 env = os.environ.get('HBNB_ENV')
+
+
 class DBStorage:
     """This class manages database storage of hbnb models."""
     __engine = None
@@ -69,3 +71,7 @@ class DBStorage:
         sess = sessionmaker(bind=self.__engine, expire_on_commit=True)
         Session = scoped_session(sess)
         self.__session = Session()
+
+    def close(self):
+        """Closes/deletes the current database session."""
+        self.__session.close()
