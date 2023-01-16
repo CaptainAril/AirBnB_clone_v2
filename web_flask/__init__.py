@@ -1,1 +1,1 @@
-"""Package documentation"""
+"""Package documentation as reqired."""
