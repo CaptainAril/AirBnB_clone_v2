@@ -4,6 +4,7 @@ Starts a flask web app.
 """
 
 from flask import Flask, render_template
+from models import *
 from models import storage
 
 app = Flask(__name__)
@@ -11,14 +12,14 @@ app = Flask(__name__)
 
 @app.route('/states_list', strict_slashes=False)
 def states_list():
-    """renders a list of states."""
+    """renders a list of states in alphabetical order."""
     states = storage.all('State').values()
     return render_template('7-states_list.html', states=states)
 
 
 @app.teardown_appcontext
 def teardown(exception):
-    """Tear down method."""
+    """Tear down method, closes the session storage."""
     storage.close()
 
 
