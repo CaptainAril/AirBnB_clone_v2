@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """This module defines a base class for all models in our hbnb clone"""
+
 import uuid
 from datetime import datetime
 import models
@@ -46,7 +47,7 @@ class BaseModel:
         cls = (str(type(self)).split('.')[-1]).split('\'')[0]
         dict = self.__dict__.copy()
         if '_sa_instance_state' in dict:
-            del(dict['_sa_instance_state'])
+            del (dict['_sa_instance_state'])
         return '[{}] ({}) {}'.format(cls, self.id, dict)
 
     def save(self):
@@ -62,7 +63,7 @@ class BaseModel:
         dictionary['created_at'] = self.created_at.isoformat()
         dictionary['updated_at'] = self.updated_at.isoformat()
         if '_sa_instance_state' in dictionary:
-            del(dictionary['_sa_instance_state'])
+            del (dictionary['_sa_instance_state'])
         return dictionary
 
     def delete(self):

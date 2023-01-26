@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """This module defines a class to manage file storage for hbnb clone"""
+
 import json
 from models.base_model import BaseModel
 from models.user import User
@@ -43,7 +44,7 @@ class FileStorage:
             for key, val in temp.items():
                 temp[key] = val.to_dict()
             if '_sa_instance_state' in temp:
-                del(temp['_sa_instance_state'])
+                del (temp['_sa_instance_state'])
             json.dump(temp, f)
 
     def reload(self):
@@ -70,7 +71,7 @@ class FileStorage:
             for key in (self.all()):
                 if self.all()[key] == obj:
                     break
-            del(FileStorage.__objects[key])
+            del (FileStorage.__objects[key])
             self.save()
 
     def close(self):
