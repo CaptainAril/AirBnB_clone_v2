@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This module starts a flask web app that renders list of states."""
+"""Starts a flask app."""
 
 from flask import Flask, render_template
 from models import storage
@@ -16,7 +16,7 @@ def states_list():
 
 @app.teardown_appcontext
 def teardown(exception):
-    """removes current SQLAlchemy session after each request."""
+    """Tear down method."""
     storage.close()
 
 

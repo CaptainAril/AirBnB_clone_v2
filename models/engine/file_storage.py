@@ -33,7 +33,6 @@ class FileStorage:
         """Adds new object to storage dictionary"""
         if obj is not None:
             key = obj.__class__.__name__ + "." + obj.id
-            print(key)
             FileStorage.__objects[key] = obj
 
     def save(self):
