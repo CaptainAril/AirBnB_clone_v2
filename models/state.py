@@ -5,6 +5,7 @@ from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
 import models
 from models.city import City
+from os import getenv
 
 
 class State(BaseModel, Base):
@@ -12,16 +13,17 @@ class State(BaseModel, Base):
     __tablename__ = 'states'
     name = Column(String(128), nullable=False)
 
-    # for DBStorage
-    cities = relationship('City', cascade='all, delete', backref='state')
-
-    # for FileStorage
-    @property
-    def cities(self):
-        """Returns a list of city objects with state_id = current id."""
-        cityList = []
-        allCities = models.storage.all(City)
-        for city in allCities:
-            if allCities[city].state_id == self.id:
-                cityList.append(allCities[city])
-        return cityList
+    if (getenv("HBNB_TYPE_STORAGE") == 'db'):
+        # for DBStorage
+        cities = relationship('City', cascade='all, delete', backref='state')
+    else:
+        # for FileStorage
+        @property
+        def cities(self):
+            """Returns a list of city objects with state_id = current id."""
+            cityList = []
+            allCities = models.storage.all(City)
+            for city in allCities:
+                if allCities[city].state_id == self.id:
+                    cityList.append(allCities[city])
+            return cityList
