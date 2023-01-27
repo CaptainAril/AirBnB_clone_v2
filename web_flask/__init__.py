@@ -1,2 +1,0 @@
-"""Initializes web flask app.
-"""
