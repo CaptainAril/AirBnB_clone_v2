@@ -1,0 +1,118 @@
+/* Variables */
+:root {
+    /* color variables */
+    --borderColor: #DDDDDD;
+    --lightRed: #FF5A5F;
+    --btnTxt: #FFFFFF;
+    --dropdownBg: #FAFAFA;
+
+    /* font variables */
+    --headerFont: clamp(.8rem, 1.5vmax + .5rem, 14px);
+}
+
+.filters {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 70px;
+    width: 100%;
+    border: 1px solid var(--borderColor);
+    border-radius: 4px;
+}
+
+.filters > button {
+    font-size: clamp(.5rem, 1.5vmax + .5rem, 1.3rem);
+    background-color: var(--lightRed);
+    color: var(--btnTxt);
+    height: 48px;
+    border-radius: 4px;
+    margin-left: auto; 
+    width: 20%;
+    margin-right: 30px;
+}
+
+.filters > button:hover {
+    opacity: 90%;
+}
+
+.locations, .amenities {
+    position: relative;
+    height: 100%;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    width: 25%;
+}
+
+.locations {
+    border-right: 1px solid var(--borderColor);
+}
+
+.amenities > h3, .locations > h3 {
+    font-weight: 600; 
+    font-size: var(--headerFont);
+    padding: 0 .5rem;
+}
+
+.amenities > h4, .locations > h4 {
+    font-weight: 400;
+    font-size: var(--headerFont);
+    padding: 0 .5rem;
+}
+
+.popover {
+    z-index: -5;
+    opacity: 0;
+    display: grid;
+    justify-content: center;
+    row-gap: .5rem;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    background-color: var(--dropdownBg);
+    border: 1px solid var(--borderColor);
+    border-radius: 4px;
+    padding: 1.5rem;
+    pointer-events: none;
+    transform: translateY(-.7rem);
+    transition: .3s ease-in-out opacity, .3s ease-in-out transform;
+}
+
+.filters > div:hover .popover {
+    pointer-events: auto;
+    transform: translateY(0);
+    z-index: 5;
+    opacity: 100;
+    transition: .3s ease-in-out opacity, .3s ease-in-out transform;
+}
+
+.popover > h2 {
+    font-size: 16px;
+    display: flex;
+    justify-content: left;
+    width: fit-content;
+}
+
+
+/* Media Queries */
+@media screen and (max-width: 396px) {
+    .filters {
+        /* background-color: antiquewhite; */
+        height: max-content;
+        row-gap: 1rem;
+        border: none;
+    }
+
+    .filters > * {
+        width: 100%;
+    }
+    .locations, .amenities {
+        text-align: center;
+        border: none;
+        border: 1px solid var(--borderColor);
+    }
+    .filters > button {
+        height: 2rem;
+        margin: 0 auto;
+    }
+}
