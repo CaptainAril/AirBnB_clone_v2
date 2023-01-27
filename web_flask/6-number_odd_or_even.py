@@ -2,7 +2,6 @@
 """Starts a simple flask web app."""
 
 from flask import Flask, render_template
-from models import storage
 
 app = Flask(__name__)
 
