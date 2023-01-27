@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route('/hbnb_filters', strict_slashes=False)
 def hbnb():
-    return render_template('6-index.html', storage=storage)
+    return render_template('10-hbnb_filters.html', storage=storage)
 
 @app.teardown_appcontext
 def teardown(exception):
