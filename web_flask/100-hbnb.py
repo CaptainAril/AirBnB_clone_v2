@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This module starts a flask web app that renders list of states."""
+"""This module starts a flask web app."""
 
 from flask import Flask, render_template
 from models import storage
@@ -7,10 +7,10 @@ from models import storage
 app = Flask(__name__)
 
 
-@app.route('/hbnb_filters', strict_slashes=False)
+@app.route('/hbnb', strict_slashes=False)
 def hbnb():
-    """Renders storage."""
-    return render_template('10-hbnb_filters.html', storage=storage)
+    """Loads and renders storage"""
+    return render_template('100-hbnb.html', storage=storage)
 
 @app.teardown_appcontext
 def teardown(exception):

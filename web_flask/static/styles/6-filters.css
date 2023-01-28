@@ -29,10 +29,11 @@
 }
 
 .popover {
+	position: absolute;
 	list-style-type: none;
 	display: none;
 	background-color: #FAFAFA;
-	width: 100%;
+	width: auto;
 
 	margin-left: -1px;
 	margin-top: 8px;
@@ -41,11 +42,13 @@
 	border: 1px solid #DDDDDD;
 	border-radius: 4px;
 	max-height: 300px;
-	overflow: scroll;
+	overflow:auto;
+	
+	z-index: 3000;
 }
 
 .locations:hover .popover {
-	display: inline-block;
+	display:inline-block;
 }
 
 .amenities:hover .popover {
